@@ -1,20 +1,26 @@
-import gql from 'graphql-tag'
-import { graphql } from 'graphql'
+import React from "react";
+import { graphql } from "react-apollo";
+import gql from "graphql-tag";
 
-function SongList() {
-    return (
-        <div>
-            SongList
-        </div>
-    )
-}
-
-const query = gql`
-{
+const QUERY = gql`
+  {
     songs {
-        title
+      title
     }
-}
-`
+  }
+`;
 
-export default graphql(query)(SongList)
+function SongList({ data: { loading, error, songs } }) {
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  return (
+    <div>
+      {songs.map((song, index) => (
+        <div key={index}>{song.title}</div>
+      ))}
+    </div>
+  );
+}
+
+export default graphql(QUERY)(SongList);
