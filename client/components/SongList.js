@@ -2,14 +2,8 @@ import React from "react";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import { Link } from "react-router";
+import QUERY from '../Queries/FetchSongs'
 
-const QUERY = gql`
-  {
-    songs {
-      title
-    }
-  }
-`;
 
 function SongList({ data: { loading, error, songs } }) {
   if (loading) return <div>Loading...</div>;
