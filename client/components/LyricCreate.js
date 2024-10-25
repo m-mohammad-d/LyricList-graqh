@@ -17,6 +17,7 @@ class LyricCreate extends Component {
           content: this.state.content,
           songId: this.props.songId,
         },
+        refetchQueries: [{ query }],
       })
       .then(() => {
         this.setState({ content: "" });

@@ -134,6 +134,39 @@ input::placeholder {
   color: white;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
+
 .btn-floating:hover {
   background-color: #5d9bff;
+}
+
+.collection {
+  list-style: none;
+  padding: 0;
+}
+
+.collection-item {
+  background-color: #3a434c;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+.collection-item:hover {
+  background-color: #4b545c;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.new.badge {
+  background-color: #38b2ac;
+  padding: .5rem;
+  border-radius: .5rem;
 }
