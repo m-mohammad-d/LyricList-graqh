@@ -1,0 +1,139 @@
+body {
+  background-color: #1b1f25;
+  color: #d1d5db;
+  font-family: Arial, sans-serif;
+}
+
+.song-create-container,
+.song-list {
+  background-color: #2d3748;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  margin: 60px auto;
+  transition: transform 0.3s;
+}
+
+.song-create-container:hover,
+.song-card:hover {
+  transform: translateY(-5px);
+}
+
+.back-button {
+  color: #81e6d9;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 30px;
+  transition: color 0.3s;
+}
+
+.back-button:hover {
+  color: #38b2ac;
+}
+
+h3 {
+  color: #e2e8f0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+label {
+  color: #a3d2ff;
+  margin-bottom: 10px;
+  font-weight: bold;
+  display: block;
+  text-align: left;
+}
+
+input {
+  padding: 14px;
+  border: 2px solid #38b2ac;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: #1b1f25;
+  color: #d1d5db;
+  width: 100%;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border-color: #5d9bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(93, 155, 255, 0.5);
+}
+
+input::placeholder {
+  color: #718096;
+}
+
+.btn-submit {
+  background-color: #38b2ac;
+  color: #1b1f25;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #5d9bff;
+  transform: translateY(-2px);
+}
+
+.song-list {
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.song-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1b1f25;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+
+.song-info {
+  flex: 1;
+}
+
+.song-title {
+  color: #d1d5db;
+  font-size: 1.2em;
+}
+
+.song-actions {
+  cursor: pointer;
+  color: #e53e3e;
+}
+
+.add-button-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-floating {
+  background-color: #38b2ac;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+.btn-floating:hover {
+  background-color: #5d9bff;
+}

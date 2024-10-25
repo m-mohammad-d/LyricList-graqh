@@ -5,13 +5,13 @@ import { Link } from "react-router";
 import QUERY from "../Queries/FetchSongs";
 
 function SongList({ data: { loading, error, songs }, mutate }) {
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (loading) return <div className="loading">Loading songs...</div>;
+  if (error) return <div className="error">Error: {error.message}</div>;
 
   const onSongDelete = (id) => {
     mutate({
-      variables: { id }, 
-      refetchQueries: [{ query: QUERY }], 
+      variables: { id },
+      refetchQueries: [{ query: QUERY }],
     })
       .then(() => {
         console.log(`Song with id ${id} deleted successfully`);
@@ -22,24 +22,25 @@ function SongList({ data: { loading, error, songs }, mutate }) {
   };
 
   return (
-    <div>
-      <ul className="collection">
-        {songs.map((song) => (
-          <li key={song.id} className="collection-item">
-            {song.title}
-            <i
-              className="material-icons"
-              style={{ cursor: "pointer", color: "red", marginLeft: "10px" }}
-              onClick={() => onSongDelete(song.id)} // ارسال id آهنگ به تابع onSongDelete
-            >
+    <div className="song-list">
+      <h3>Song List</h3>
+      {songs.map((song) => (
+        <div key={song.id} className="song-card">
+          <div className="song-info">
+            <span className="song-title">{song.title}</span>
+          </div>
+          <div className="song-actions">
+            <i className="material-icons" onClick={() => onSongDelete(song.id)}>
               delete
             </i>
-          </li>
-        ))}
-      </ul>
-      <Link to="/song/new" className="btn-floating btn-large red right">
-        <i className="material-icons">add</i>
-      </Link>
+          </div>
+        </div>
+      ))}
+      <div className="add-button-container">
+        <Link to="/song/new" className="btn-floating btn-large">
+          <i className="material-icons">add</i>
+        </Link>
+      </div>
     </div>
   );
 }

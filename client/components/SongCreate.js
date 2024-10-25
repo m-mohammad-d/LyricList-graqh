@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { hashHistory, Link } from "react-router";
-import query from "../Queries/FetchSongs"
+import query from "../Queries/FetchSongs";
 
 class SongCreate extends Component {
   constructor(props) {
@@ -22,11 +22,11 @@ class SongCreate extends Component {
     this.props
       .mutate({
         variables: { title },
-        refetchQuerys : [{query}]
+        refetchQueries: [{ query }],
       })
       .then(() => {
         this.setState({ title: "" });
-        hashHistory.push('/')
+        hashHistory.push("/");
       })
       .catch((error) => {
         console.error("Error adding song:", error);
@@ -35,13 +35,21 @@ class SongCreate extends Component {
 
   render() {
     return (
-      <div>
-        <Link to='/'>back</Link>
-        <h3>Create a new song</h3>
+      <div className="song-create-container">
+        <Link to="/" className="back-button">
+          <i className="material-icons">arrow_back</i> Back
+        </Link>
+        <h3>Create a New Song</h3>
         <form onSubmit={this.onSubmit}>
-          <label>Song name: </label>
-          <input onChange={this.handleChange} value={this.state.title} />
-          <button type="submit">Submit</button>
+          <label>Song Title</label>
+          <input
+            onChange={this.handleChange}
+            value={this.state.title}
+            placeholder="Enter song name"
+          />
+          <button type="submit" className="btn-submit">
+            Submit
+          </button>
         </form>
       </div>
     );
