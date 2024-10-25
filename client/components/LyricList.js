@@ -12,13 +12,23 @@ const LIKE_LYRIC = gql`
 `;
 
 class LyricList extends Component {
-  onLike (id)  {
+  onLike(id , likes) {
     try {
-       this.props.mutate({ variables: { id } });
+      this.props.mutate({
+        variables: { id },
+        optimisticResponse: {
+          __typename: "Mutation",
+          likeLyric: {
+            id,
+            __typename: "LyricType",
+            likes: likes + 1,
+          },
+        },
+      });
     } catch (error) {
       console.error("Error liking lyric:", error);
     }
-  };
+  }
 
   render() {
     const { lyrics } = this.props;
@@ -36,7 +46,7 @@ class LyricList extends Component {
               <i
                 className="material-icons blue-grey-text"
                 style={{ cursor: "pointer" }}
-                onClick={() => this.onLike(lyric.id)}
+                onClick={() => this.onLike(lyric.id , lyric.likes)}
               >
                 thumb_up
               </i>
