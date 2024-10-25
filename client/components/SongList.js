@@ -27,7 +27,9 @@ function SongList({ data: { loading, error, songs }, mutate }) {
       {songs.map((song) => (
         <div key={song.id} className="song-card">
           <div className="song-info">
-            <span className="song-title">{song.title}</span>
+            <Link to={`/song/${song.id}`} className="song-title">
+              {song.title}
+            </Link>
           </div>
           <div className="song-actions">
             <i className="material-icons" onClick={() => onSongDelete(song.id)}>
