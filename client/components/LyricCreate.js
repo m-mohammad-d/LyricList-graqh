@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
-
 class LyricCreate extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +16,6 @@ class LyricCreate extends Component {
           content: this.state.content,
           songId: this.props.songId,
         },
-        refetchQueries: [{ query }],
       })
       .then(() => {
         this.setState({ content: "" });
